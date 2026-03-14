@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercadinho Matos</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f2f7ff;
+}
+
+/* CABEÇALHO */
+
+header{
+background:#0d6efd;
+color:white;
+padding:20px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+}
+
+/* MENU */
+
+nav{
+background:#1e73ff;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+padding:12px 18px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+background:#0d6efd;
+}
+
+/* BANNER */
+
+.banner{
+background:linear-gradient(90deg,#0d6efd,#5ea2ff);
+color:white;
+text-align:center;
+padding:50px 20px;
+}
+
+.banner h2{
+font-size:32px;
+}
+
+/* PRODUTOS */
+
+.container{
+padding:25px;
+}
+
+.categoria{
+margin-top:40px;
+}
+
+.categoria h2{
+color:#0d6efd;
+margin-bottom:15px;
+}
+
+.produtos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.produto{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center;
+transition:0.3s;
+}
+
+.produto:hover{
+transform:scale(1.05);
+}
+
+.produto img{
+width:100%;
+height:120px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.produto input{
+width:60px;
+margin-top:8px;
+padding:5px;
+}
+
+button{
+margin-top:8px;
+background:#0d6efd;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* CARRINHO */
+
+.cart{
+background:white;
+margin:30px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cart h3{
+margin-bottom:10px;
+}
+
+/* FORMULÁRIO */
+
+.form{
+background:white;
+margin:30px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+/* FOOTER */
+
+footer{
+background:#0d6efd;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+Mercadinho Matos
+</header>
+
+<nav>
+<a href="#alimentos">Alimentos</a>
+<a href="#frios">Frios</a>
+<a href="#bebidas">Bebidas</a>
+<a href="#lanches">Lanches</a>
+<a href="#limpeza">Limpeza</a>
+<a href="#higiene">Higiene</a>
+</nav>
+
+<section class="banner">
+<h2>Seu mercado online</h2>
+<p>Escolha seus produtos e faça seu pedido</p>
+</section>
+
+<div class="container">
+
+<!-- ALIMENTOS -->
+
+<div class="categoria" id="alimentos">
+<h2>🥫 Alimentos</h2>
+<div class="produtos">
+
+<script>
+let alimentos=[
+"Arroz","Feijão","Macarrão","Farinha de mandioca","Farinha de trigo",
+"Açúcar","Sal","Café","Óleo de soja","Milho em conserva",
+"Ervilha em conserva","Molho de tomate"
+]
+
+document.write(alimentos.map(p=>`
+<div class="produto">
+<img src="https://via.placeholder.com/200">
+<p>${p}</p>
+<input type="number" min="1" value="1" id="${p}">
+<button onclick="add('${p}')">Adicionar</button>
+</div>
+`).join(""))
+</script>
+
+</div>
+</div>
+
+<!-- FRIOS -->
+
+<div class="categoria" id="frios">
+<h2>🧀 Frios e Refrigerados</h2>
+<div class="produtos">
+
+<script>
+let frios=["Presunto","Queijo muçarela","Margarina","Manteiga","Iogurte","Leite","Salsicha"]
+
+document.write(frios.map(p=>`
+<div class="produto">
+<img src="https://via.placeholder.com/200">
+<p>${p}</p>
+<input type="number" min="1" value="1" id="${p}">
+<button onclick="add('${p}')">Adicionar</button>
+</div>
+`).join(""))
+</script>
+
+</div>
+</div>
+
+<!-- BEBIDAS -->
+
+<div class="categoria" id="bebidas">
+<h2>🥤 Bebidas</h2>
+<div class="produtos">
+
+<script>
+let bebidas=["Refrigerante","Suco","Água mineral","Achocolatado","Energético"]
+
+document.write(bebidas.map(p=>`
+<div class="produto">
+<img src="https://via.placeholder.com/200">
+<p>${p}</p>
+<input type="number" min="1" value="1" id="${p}">
+<button onclick="add('${p}')">Adicionar</button>
+</div>
+`).join(""))
+</script>
+
+</div>
+</div>
+
+<!-- LANCHES -->
+
+<div class="categoria" id="lanches">
+<h2>🍪 Lanches</h2>
+<div class="produtos">
+
+<script>
+let lanches=["Biscoito recheado","Biscoito salgado","Salgadinho","Chocolate","Bala","Chiclete"]
+
+document.write(lanches.map(p=>`
+<div class="produto">
+<img src="https://via.placeholder.com/200">
+<p>${p}</p>
+<input type="number" min="1" value="1" id="${p}">
+<button onclick="add('${p}')">Adicionar</button>
+</div>
+`).join(""))
+</script>
+
+</div>
+</div>
+
+<!-- LIMPEZA -->
+
+<div class="categoria" id="limpeza">
+<h2>🧼 Limpeza</h2>
+<div class="produtos">
+
+<script>
+let limpeza=["Detergente","Sabão em pó","Sabão em barra","Água sanitária","Desinfetante","Esponja de limpeza"]
+
+document.write(limpeza.map(p=>`
+<div class="produto">
+<img src="https://via.placeholder.com/200">
+<p>${p}</p>
+<input type="number" min="1" value="1" id="${p}">
+<button onclick="add('${p}')">Adicionar</button>
+</div>
+`).join(""))
+</script>
+
+</div>
+</div>
+
+<!-- HIGIENE -->
+
+<div class="categoria" id="higiene">
+<h2>🧴 Higiene</h2>
+<div class="produtos">
+
+<script>
+let higiene=["Sabonete","Shampoo","Condicionador","Pasta de dente","Papel higiênico","Desodorante"]
+
+document.write(higiene.map(p=>`
+<div class="produto">
+<img src="https://via.placeholder.com/200">
+<p>${p}</p>
+<input type="number" min="1" value="1" id="${p}">
+<button onclick="add('${p}')">Adicionar</button>
+</div>
+`).join(""))
+</script>
+
+</div>
+</div>
+
+</div>
+
+<!-- CARRINHO -->
+
+<div class="cart">
+
+<h3>🛒 Itens escolhidos</h3>
+<div id="lista"></div>
+
+</div>
+
+<!-- FORMULÁRIO -->
+
+<div class="form">
+
+<h3>Finalizar Pedido</h3>
+
+<input type="text" placeholder="Seu nome">
+
+<input type="text" placeholder="Seu endereço">
+
+<select>
+<option>Forma de pagamento</option>
+<option>Pix</option>
+<option>Cartão de crédito</option>
+<option>Cartão de débito</option>
+<option>Dinheiro</option>
+</select>
+
+<button>Enviar Pedido</button>
+
+</div>
+
+<footer>
+Mercadinho Matos © 2026
+</footer>
+
+<script>
+
+let carrinho=[]
+
+function add(produto){
+
+let qtd=document.getElementById(produto).value
+
+carrinho.push(produto+" x"+qtd)
+
+mostrar()
+
+}
+
+function mostrar(){
+
+document.getElementById("lista").innerHTML=carrinho.join("<br>")
+
+}
+
+</script>
+
+</body>
+</html>
